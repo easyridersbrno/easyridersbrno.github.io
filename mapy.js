@@ -13,5 +13,5 @@ function DrawMapyWithLayer(container) {
     var rightBottom = SMap.Coords.fromWGS84(13.9, 49.9);
     console.log(leftTop);
     console.log(rightBottom);
-    vrstva.addImage("https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitmap_VS_SVG.svg", leftTop, rightBottom);
+    overlay.addImage("https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitmap_VS_SVG.svg", leftTop, rightBottom);
 }
