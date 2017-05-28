@@ -10,10 +10,10 @@ function DrawMapyWithLayer(container) {
     overlay.enable();
 
     /* Add overlay; TODO: coords */
-    var leftTop = SMap.Coords.fromWGS84(16.5, 49.3);
-    var rightBottom = SMap.Coords.fromWGS84(16.7, 49.1);
+    var leftTop = SMap.Coords.fromWGS84(16.339, 49.279);
+    var rightBottom = SMap.Coords.fromWGS84(16.858, 49.13);
 
-    var imageId = overlay.addImage("drawing.svg", leftTop, rightBottom);
+    var imageId = overlay.addImage("map.svg", leftTop, rightBottom);
 }
 
 function MapyChangeOpacity(opacity) {

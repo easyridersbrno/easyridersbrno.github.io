@@ -1,6 +1,7 @@
 var MINI = require('minified');
 var _=MINI._, $=MINI.$, $$=MINI.$$, EE=MINI.EE, HTML=MINI.HTML;
 
+
 $(function() {
     DrawMapsWithLayer('maps_container');
 
@@ -16,7 +17,7 @@ $(function() {
         DrawMapyWithLayer('mapy_container');
     })
 
-    $('.header').add([maps]);
+    $('.header').add([maps, mapy]);
 
 
     var slider = EE('input', {'type': 'range', 'min': 0, 'max': 1, 'step': 0.05, 'value': 1});
