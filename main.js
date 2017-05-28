@@ -4,6 +4,7 @@ var _=MINI._, $=MINI.$, $$=MINI.$$, EE=MINI.EE, HTML=MINI.HTML;
 
 $(function() {
     DrawMapsWithLayer('maps_container');
+    // GeoMaps('maps_container');
 
     var maps = EE('span', {$: 'button'}, 'Google Maps');
     maps.onClick(function() { 
