@@ -21,7 +21,7 @@ $(function() {
     // $('.header').add([maps, mapy]);
 
 
-    var slider = EE('input', {'type': 'range', 'min': 0, 'max': 1, 'step': 0.05, 'value': 0.75});
+    var slider = EE('input', {$: 'map-ui', 'type': 'range', 'min': 0, 'max': 1, 'step': 0.05, 'value': 0.75});
     slider.onChange(function (value, i, t) {
         //google
         $('.gmap_img').set('$opacity', value);
