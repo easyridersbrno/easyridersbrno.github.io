@@ -11,12 +11,10 @@ function DrawMapsWithLayer(container) {
   });
 
   var bounds = new google.maps.LatLngBounds(
-      // new google.maps.LatLng(49.15, 16.5),
-      // new google.maps.LatLng(49.25, 16.7));
       new google.maps.LatLng(49.09764, 16.4244),
       new google.maps.LatLng(49.3034, 16.759));
 
-  var srcImage = 'ER.png';
+  var srcImage = 'ER_WM.png';
 
   overlay = new MapsOverlay(bounds, srcImage, map);
 }
