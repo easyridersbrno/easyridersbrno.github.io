@@ -21,14 +21,11 @@ $(function() {
     // $('.header').add([maps, mapy]);
 
 
-    var slider = EE('input', {'type': 'range', 'min': 0, 'max': 1, 'step': 0.05, 'value': 1});
+    var slider = EE('input', {'type': 'range', 'min': 0, 'max': 1, 'step': 0.05, 'value': 0.75});
     slider.onChange(function (value, i, t) {
-        //mapy.cz
-        MapyChangeOpacity(value);
-
         //google
         $('.gmap_img').set('$opacity', value);
     })
-    $('.header').add(EE('div', {$: 'slider-container'}, [EE('span', 'Opacity '), slider]));
+    $('body').add(EE('div', {$: 'slider-container'}, slider));
 
 });

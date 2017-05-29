@@ -8,11 +8,12 @@ function DrawMapsWithLayer(container) {
     center: {lat: 49.2005619, lng: 16.6061786},
     mapTypeId: 'roadmap',
     styles: GMstyle,
+    streetViewControl: false,
   });
 
   var bounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(49.09764, 16.4244),
-      new google.maps.LatLng(49.3034, 16.759));
+      new google.maps.LatLng(49.099018, 16.421943),
+      new google.maps.LatLng(49.298635, 16.745320));
 
   var srcImage = 'ER_WM.png';
 
@@ -21,25 +22,14 @@ function DrawMapsWithLayer(container) {
 
 /** @constructor */
 function MapsOverlay(bounds, image, map) {
-
-  // Initialize all properties.
   this.bounds_ = bounds;
   this.image_ = image;
   this.map_ = map;
-
-  // Define a property to hold the image's div. We'll
-  // actually create this div upon receipt of the onAdd()
-  // method so we'll leave it null for now.
   this.div_ = null;
-
-  // Explicitly call setMap on this overlay.
   this.setMap(map);
 }
 
-/**
- * onAdd is called when the map's panes are ready and the overlay has been
- * added to the map.
- */
+
 MapsOverlay.prototype.onAdd = function() {
 
   var div = document.createElement('div');
@@ -63,20 +53,12 @@ MapsOverlay.prototype.onAdd = function() {
   panes.overlayLayer.appendChild(div);
 };
 
+
 MapsOverlay.prototype.draw = function() {
-
-  // We use the south-west and north-east
-  // coordinates of the overlay to peg it to the correct position and size.
-  // To do this, we need to retrieve the projection from the overlay.
   var overlayProjection = this.getProjection();
-
-  // Retrieve the south-west and north-east coordinates of this overlay
-  // in LatLngs and convert them to pixel coordinates.
-  // We'll use these coordinates to resize the div.
   var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
   var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
 
-  // Resize the image's div to fit the indicated dimensions.
   var div = this.div_;
   div.style.left = sw.x + 'px';
   div.style.top = ne.y + 'px';
@@ -84,8 +66,7 @@ MapsOverlay.prototype.draw = function() {
   div.style.height = (sw.y - ne.y) + 'px';
 };
 
-// The onRemove() method will be called automatically from the API if
-// we ever set the overlay's map property to 'null'.
+
 MapsOverlay.prototype.onRemove = function() {
   this.div_.parentNode.removeChild(this.div_);
   this.div_ = null;
