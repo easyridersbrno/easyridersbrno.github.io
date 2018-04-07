@@ -15,7 +15,7 @@ function DrawMapsWithLayer(container) {
       new google.maps.LatLng(49.099018, 16.421943),
       new google.maps.LatLng(49.298635, 16.745320));
 
-  var srcImage = 'classic/ER_WM.mini.png';
+  var srcImage = 'ER_WM.mini.png';
 
   overlay = new MapsOverlay(bounds, srcImage, map);
 }
